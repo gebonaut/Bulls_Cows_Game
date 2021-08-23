@@ -1,4 +1,4 @@
-import random
+from random import choice
 from timeit import default_timer as timer
 
 cisla = []
@@ -10,7 +10,7 @@ end_timer = 0
 def nahodny_vyber_cisla() -> None:
     """Náhodně vytvoří 4 čísla a vyplní do listu čísla"""
     for i in range(4):
-        cisla.append(random.choice(range(10)))
+        cisla.append(choice(range(10)))
     if len(cisla) > len(set(cisla)) or cisla[0] == 0:
         cisla.clear()
         nahodny_vyber_cisla()
