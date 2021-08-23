@@ -11,12 +11,12 @@ def nahodny_vyber_cisla() -> None:
     """Náhodně vytvoří 4 čísla a vyplní do listu čísla"""
     for i in range(4):
         cisla.append(random.choice(range(10)))
-
     if len(cisla) > len(set(cisla)) or cisla[0] == 0:
         cisla.clear()
         nahodny_vyber_cisla()
 
 def oddelovac():
+    """Vytiskne oddělovač"""
     print("-"*40)
 
 def volba_hrace() -> None:
@@ -24,7 +24,6 @@ def volba_hrace() -> None:
     volba_cisel = input('Guess the number: ')
     volba.clear()
     oddelovac()
-
     if kontrola_cisla(volba_cisel) == True:
         for cislo in volba_cisel:
             volba.append(int(cislo))
@@ -66,6 +65,7 @@ def vyhodnoceni() -> None:
               f" You've guessed the right number in {pokus} {'guess' if pokus <= 1 else 'guesses'}! "
               f"It took you {str(end_timer-start_timer)[:3]} seconds!")
         oddelovac()
+
 def hra() -> None:
     """Spouští hru a jednotlivé funkce"""
     global pokus
@@ -78,7 +78,6 @@ def hra() -> None:
         print("I've generated a random 4 digit number for you.\n"
               "Let's play a bulls and cows game.")
         oddelovac()
-
     volba_hrace()
     vyhodnoceni()
 
